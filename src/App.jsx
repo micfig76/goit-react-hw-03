@@ -13,17 +13,22 @@ const initialContacts = [
 ];
 
 export default function App() {
-  const [contacts, setcontacts] = useState(initialContacts);
+  const [contacts, setContacts] = useState(initialContacts);
   const [searchQuery, setSearchQuery] = useState("");
 
   const filteredContacts = contacts.filter((contact) =>
     contact.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  function addContact(name, number) {
+    const contact = { name, number, id: crypto.randomUUID() };
+    setContacts((prev) => [...prev, contact]);
+  }
+
   return (
     <div>
       <h1>Phonebook</h1>
-      <ContactForm />
+      <ContactForm addContact={addContact} />
       <SearchBox searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       <ContactList contacts={filteredContacts} />
     </div>
