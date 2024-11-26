@@ -14,13 +14,18 @@ const initialContacts = [
 
 export default function App() {
   const [contacts, setcontacts] = useState(initialContacts);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const filteredContacts = contacts.filter((contact) =>
+    contact.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
     <div>
       <h1>Phonebook</h1>
       <ContactForm />
-      <SearchBox />
-      <ContactList contacts={contacts} />
+      <SearchBox searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      <ContactList contacts={filteredContacts} />
     </div>
   );
 }
