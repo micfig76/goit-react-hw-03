@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ContactForm from "./components/ContactForm/ContactForm";
 import SearchBox from "./components/SearchBox/SearchBox";
 import ContactList from "./components/ContactList/ContactList";
@@ -13,8 +13,22 @@ const initialContacts = [
 ];
 
 export default function App() {
-  const [contacts, setContacts] = useState(initialContacts);
+  const [contacts, setContacts] = useState(() => {
+    try {
+      const savedContacts = window.localStorage.getItem("contacts-3");
+      if (savedContacts !== null) {
+        return JSON.parse(savedContacts);
+      }
+      return initialContacts;
+    } catch (error) {
+      return initialContacts;
+    }
+  });
   const [searchQuery, setSearchQuery] = useState("");
+
+  useEffect(() => {
+    window.localStorage.setItem("contacts-3", JSON.stringify(contacts));
+  }, [contacts]);
 
   const filteredContacts = contacts.filter((contact) =>
     contact.name.toLowerCase().includes(searchQuery.toLowerCase())
