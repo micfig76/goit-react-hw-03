@@ -25,12 +25,17 @@ export default function App() {
     setContacts((prev) => [...prev, contact]);
   }
 
+  function removeContact(id) {
+    console.log(id);
+    setContacts((prev) => prev.filter((contact) => contact.id === id));
+  }
+
   return (
     <div>
       <h1>Phonebook</h1>
       <ContactForm addContact={addContact} />
       <SearchBox searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-      <ContactList contacts={filteredContacts} />
+      <ContactList contacts={filteredContacts} deleteContact={removeContact} />
     </div>
   );
 }
