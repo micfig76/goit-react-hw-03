@@ -41,7 +41,7 @@ export default function App() {
 
   function removeContact(id) {
     console.log(id);
-    setContacts((prev) => prev.filter((contact) => contact.id === id));
+    setContacts((prev) => prev.filter((contact) => contact.id !== id));
   }
 
   return (
