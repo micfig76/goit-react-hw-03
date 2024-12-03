@@ -31,7 +31,7 @@ export default function ContactForm({ addContact }) {
       initialValues={initialValues}
       validationSchema={ContactSchema}
     >
-      <Form>
+      <Form className={css.formLook}>
         <label htmlFor={nameId}>
           <span>Name</span>
           <Field type="text" name="name" id={nameId} />

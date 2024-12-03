@@ -3,7 +3,7 @@ import css from "./SearchBox.module.css";
 export default function SearchBox({ searchQuery, setSearchQuery }) {
   return (
     <article>
-      <span>Find contacts by name</span>
+      <span className={css.searchDetails}>Find contacts by name</span>
       <input
         type="text"
         value={searchQuery}

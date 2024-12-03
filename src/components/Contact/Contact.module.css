@@ -1,5 +1,27 @@
+* {
+    margin: 0 auto;
+}
+
 .contact {
-    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    padding: 0.5px;
     border: 1px solid black;
     border-radius: 4px;
+}
+
+.contactDetails {
+    margin: 2px 0 8px 0;
+}
+
+.btn {
+    display: flex;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.icon {
+    margin-left: 8px;
+    margin-right: 8px;
 }

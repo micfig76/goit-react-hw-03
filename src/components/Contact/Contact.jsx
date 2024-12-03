@@ -7,15 +7,17 @@ export default function Contact({
 }) {
   return (
     <article className={css.contact}>
-      <p>
-        <BsFillPersonFill />
-        {name}
-      </p>
-      <p>
-        <BsFillTelephoneFill />
-        {number}
-      </p>
-      <button type="button" onClick={deleteContact}>
+      <div className={css.contactDetails}>
+        <p>
+          <BsFillPersonFill className={css.icon} />
+          {name}
+        </p>
+        <p>
+          <BsFillTelephoneFill className={css.icon} />
+          {number}
+        </p>
+      </div>
+      <button className={css.btn} type="button" onClick={deleteContact}>
         Delete
       </button>
     </article>

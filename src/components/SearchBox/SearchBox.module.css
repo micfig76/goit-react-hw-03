@@ -1,0 +1,5 @@
+.searchDetails {
+    display: flex;
+    flex-direction: column;
+    color: brown;
+}
