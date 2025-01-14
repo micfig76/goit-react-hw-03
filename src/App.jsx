@@ -47,9 +47,14 @@ export default function App() {
   return (
     <div>
       <h1>Phonebook</h1>
-      <ContactForm addContact={addContact} />
-      <SearchBox searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-      <ContactList contacts={filteredContacts} deleteContact={removeContact} />
+      <div className={addField}>
+        <ContactForm addContact={addContact} />
+        <SearchBox searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+        <ContactList
+          contacts={filteredContacts}
+          deleteContact={removeContact}
+        />
+      </div>
     </div>
   );
 }

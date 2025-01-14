@@ -5,10 +5,12 @@ import * as Yup from "yup";
 
 const ContactSchema = Yup.object().shape({
   name: Yup.string()
+    .matches(/^[A-Za-z ]+$/, "Only alphabetic characters are allowed")
     .min(3, "Too Short!")
     .max(50, "Too Long!")
     .required("Required"),
   number: Yup.string()
+    .matches(/^[0-9]+$/, "Only numeric characters are allowed")
     .min(3, "Too Short!")
     .max(50, "Too Long!")
     .required("Required"),
