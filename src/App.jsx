@@ -46,8 +46,9 @@ export default function App() {
 
   return (
     <div>
+      npm run dev
       <h1>Phonebook</h1>
-      <div className={addField}>
+      <div className="addField">
         <ContactForm addContact={addContact} />
         <SearchBox searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
         <ContactList
