@@ -1,5 +1,18 @@
 .searchDetails {
+    max-width: 400px;
     display: flex;
     flex-direction: column;
+    justify-items: start;
     color: brown;
+}
+
+
+.searchBar {
+
+    display: flex;
+    justify-items: start;
+}
+
+.inputField {
+    max-width: 400px;
 }

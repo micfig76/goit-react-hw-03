@@ -33,22 +33,59 @@ export default function ContactForm({ addContact }) {
       initialValues={initialValues}
       validationSchema={ContactSchema}
     >
-      <Form className={css.formLook}>
-        <label htmlFor={nameId}>
-          <span>Name</span>
-          <Field type="text" name="name" id={nameId} />
-          <ErrorMessage component="p" name="name" />
-        </label>
-
-        <label htmlFor={numberId}>
-          <span>Number</span>
-          <Field type="text" name="number" id={numberId} />
-
-          <ErrorMessage className={css.error} component="p" name="number" />
-        </label>
-
-        <button type="submit">Add contact</button>
-      </Form>
+      <div className={css.wrapper}>
+        <div className={css.formContainer}>
+          <Form className={css.formLook}>
+            <label htmlFor={nameId} className={css.label}>
+              <span>Name</span>
+              <Field
+                type="text"
+                name="name"
+                id={nameId}
+                className={css.inputField}
+              />
+              <ErrorMessage
+                component="p"
+                name="name"
+                className={css.errorMessage}
+              />
+              <ErrorMessage
+                name="name"
+                render={(msg) =>
+                  msg === "Required" ? (
+                    <p className={css.requiredMessage}>{msg}</p>
+                  ) : null
+                }
+              />
+            </label>
+            <label htmlFor={numberId} className={css.label}>
+              <span>Number</span>
+              <Field
+                type="text"
+                name="number"
+                id={numberId}
+                className={css.inputField}
+              />
+              <ErrorMessage
+                component="p"
+                name="number"
+                className={css.errorMessage}
+              />
+              <ErrorMessage
+                name="number"
+                render={(msg) =>
+                  msg === "Required" ? (
+                    <p className={css.requiredMessage}>{msg}</p>
+                  ) : null
+                }
+              />
+            </label>
+            <button type="submit" className={css.button}>
+              Add contact
+            </button>
+          </Form>
+        </div>
+      </div>
     </Formik>
   );
 }
